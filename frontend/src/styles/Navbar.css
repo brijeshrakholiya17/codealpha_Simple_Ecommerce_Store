@@ -1,0 +1,306 @@
+/* ===== Base Navbar Styling ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: default;
+}
+
+/* Right Menu (desktop only) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Nav links */
+.navbar-right a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffa500;
+  transition: width 0.3s ease;
+}
+
+.navbar-right a:hover::after {
+  width: 100%;
+}
+
+.navbar-right a:hover {
+  color: #ffa500;
+}
+
+/* Logout button */
+.logout-btn {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  border: none;
+  padding: 8px 14px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 95, 109, 0.4);
+}
+
+/* Cart badge */
+.cart-badge {
+  background-color: red;
+  color: white;
+  padding: 2px 7px;
+  font-size: 12px;
+  border-radius: 50%;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.cart-link i {
+  font-size: 18px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.cart-link:hover,
+.cart-link:hover i {
+  color: #ffa500;
+}
+
+/* ===== Search Form ===== */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-form input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  width: 30vw;
+}
+
+.search-form button {
+  background: #ffa500;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+  background: #ff8c00;
+}
+
+/* ===== Hamburger Icon ===== */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 250px;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  z-index: 1100;
+  transition: left 0.3s ease-in-out;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar a,
+.sidebar button {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 12px 0;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar button:hover {
+  color: #ffa500;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Overlay when sidebar is open */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1090;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 16px;
+  }
+
+  /* Row layout: logo + search + hamburger */
+  .navbar > .navbar-left,
+  .navbar > .search-form,
+  .navbar > .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .search-form {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Common Style for Login & Register Buttons */
+.login-btn,
+.register-btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 106, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Glowing hover effect */
+.login-btn::before,
+.register-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0%;
+  height: 0%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: -1;
+}
+
+.login-btn:hover::before,
+.register-btn:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 106, 0, 0.5);
+  background: linear-gradient(135deg, #ff8800, #ff2e8e);
+  color: white;
+}
+
+.nav-btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-btn:hover {
+  background-color: #ff8c00;
+}

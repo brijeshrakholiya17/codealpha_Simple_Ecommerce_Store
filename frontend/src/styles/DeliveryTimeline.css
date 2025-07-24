@@ -1,0 +1,46 @@
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background-color: #ccc;
+  z-index: 0;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  width: 25%;
+}
+
+.timeline-step .circle {
+  background: #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.timeline-step.active .circle {
+  background: #28a745;
+}
+
+.timeline-step p {
+  font-size: 14px;
+  margin: 0;
+}

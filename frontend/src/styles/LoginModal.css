@@ -1,0 +1,127 @@
+/* src/styles/LoginModal.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-modal {
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.4s ease;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-modal h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.login-modal input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.login-modal input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+.login-modal button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-modal button[type="submit"]:hover {
+  background: linear-gradient(to right, #00c6ff, #007bff);
+  box-shadow: 0 0 12px rgba(0, 198, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.close-btn {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ff3e3e;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .login-modal {
+    padding: 30px 20px;
+  }
+
+  .login-modal h2 {
+    font-size: 20px;
+  }
+
+  .login-modal input,
+  .login-modal button[type="submit"] {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+.login-modal input,
+.login-modal button[type="submit"] {
+  width: 100%;
+  max-width: 100%;
+}
